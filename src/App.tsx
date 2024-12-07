@@ -2,12 +2,18 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid2";
 import TourCard from "./components/TourCardComponent/TourCard.tsx";
 import { Isfahan, Tehran, Qom, Mashhad, Shiraz } from "./assets/img/city/all";
+import Typography from "@mui/material/Typography";
 
 function App() {
   return (
     <>
       <Container fixed>
-        <Grid container spacing={2}>
+        <Grid sx={{ mt: 2 }} container spacing={2}>
+          <Grid size={12} textAlign="center">
+            <Typography sx={{ fontWeight: "bold" }} variant="h3" component="h3">
+              Most Liked Tours
+            </Typography>
+          </Grid>
           <TourCard
             duration={5}
             review={0}

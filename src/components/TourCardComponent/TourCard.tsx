@@ -1,9 +1,10 @@
 import Grid from "@mui/material/Grid2";
 import Paper from "@mui/material/Paper";
-import { CardMedia, Rating } from "@mui/material";
+import { CardMedia, Link, Rating } from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
+import Button from "@mui/material/Button";
 
 interface Props {
   rate?: number;
@@ -41,7 +42,9 @@ function TourCard({
             component="h2"
             sx={{ fontWeight: "bold" }}
           >
-            {tourText}
+            <Link href="#" underline={"none"} component={Button}>
+              {tourText}
+            </Link>
           </Typography>
           <Typography variant="body2" sx={{ color: "text.secondary" }}>
             Lizards are a widespread group of squamate reptiles, with over 6,000
@@ -60,11 +63,9 @@ function TourCard({
             sx={{ mt: 1 }}
           />
 
-          {review > 0 && (
-            <Typography variant="caption" sx={{ display: "block" }}>
-              {review} Reviews
-            </Typography>
-          )}
+          <Typography variant="caption" sx={{ display: "block" }}>
+            {review > 0 ? `${review} Reviews` : `No reviews yet`}
+          </Typography>
 
           <Divider sx={{ my: 1 }} />
 
