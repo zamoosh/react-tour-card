@@ -8,8 +8,11 @@ import Stack from "@mui/material/Stack";
 import Avatar from "@mui/material/Avatar";
 import Divider from "@mui/material/Divider";
 import Tooltip from "@mui/material/Tooltip";
+import { useState } from "react";
 
 function Dashboard() {
+  const [sideBarOpen, setSideBarOpen] = useState(false);
+
   return (
     <>
       <Container sx={{ p: 1, maxWidth: "unset !important" }}>
@@ -31,19 +34,38 @@ function Dashboard() {
               >
                 <Tooltip title={"تغییر تم"}>
                   <IconButton
-                    sx={{ bgcolor: "transparent !important" }}
                     size={"medium"}
                   >
-                    <i className="fa-thin fa-moon fa-flip-horizontal"></i>
+                    <Box
+                      component="i"
+                      className="fa-thin fa-moon fa-flip-horizontal"
+                      sx={{
+                        width: "26px",
+                        height: "26px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    />
                   </IconButton>
                 </Tooltip>
                 <Tooltip title={"منو"}>
                   <IconButton
+                    onClick={() => setSideBarOpen(!sideBarOpen)}
                     color="warning"
-                    sx={{ bgcolor: "transparent !important" }}
                     size={"medium"}
                   >
-                    <i className="fa-regular fa-bars"></i>
+                    <Box
+                      component="i"
+                      className={"fa-regular " + (sideBarOpen ? "fa-xmark" : "fa-bars")}
+                      sx={{
+                        width: "26px",
+                        height: "26px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    />
                   </IconButton>
                 </Tooltip>
                 <Stack direction={"row"} alignItems="center" spacing={1}>
